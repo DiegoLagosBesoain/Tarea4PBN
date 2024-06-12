@@ -1,6 +1,6 @@
 CC=g++
 EXE=ejecutable
-FLAGS=  # Si tienes flags, agrégalos aquí
+FLAGS=
 
 run: $(EXE)
 	./$(EXE)
