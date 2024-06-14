@@ -1,6 +1,6 @@
 CC=g++
 EXE=ejecutable
-FLAGS=
+FLAGS=-std=c++11 -Wall -Wextra -Wundef -Werror -Wuninitialized -Winit-self
 
 run: $(EXE)
 	./$(EXE)
