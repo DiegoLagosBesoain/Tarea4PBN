@@ -1,5 +1,6 @@
 #include <cmath>
 #include <vector>
+#include <iostream>
 class grafo {
 private:
   int cantidad_de_nodos;
@@ -9,7 +10,8 @@ private:
   int numero_de_arcos;
   void verificar_forma();
   std::vector<std::vector<int>> lista_de_adyacencias_a_matriz();
-  std::vector<std::vector<int>> matriz_al_ista_de_adyacencias();
+  std::vector<std::vector<int>> matriz_al_lista_de_adyacencias();
+  bool hay_camino(int, int , std::vector<int>);
 
 public:
   grafo(int);
@@ -17,4 +19,5 @@ public:
   int add_nodo();
   bool hay_arco(int, int);
   bool hay_camino(int, int);
+  void mostrar_grafo();
 };
