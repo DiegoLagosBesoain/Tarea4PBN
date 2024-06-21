@@ -43,7 +43,8 @@ int grafo::add_nodo() {
 }
 //=======================================================================================
 void grafo::add_arco(int x, int y) {
-
+  x=x-1;
+  y=y-1;
   if ((cantidad_de_nodos< x) || (cantidad_de_nodos < y)) {
     return;
   }
@@ -64,14 +65,15 @@ void grafo::add_arco(int x, int y) {
 //=======================================================================================
 bool grafo::hay_arco(int x, int y) {
   if (modo == 0) {
-    if (grafo_forma[x][y] == 1) {
+    if (grafo_forma[x-1][y-1] == 1) {
+      std::cout<<"entre 2\n";
       return true;
     }
   }
 
   if (modo == 1) {
     for (int i = 0; i < (int)grafo_forma.size(); i++) {
-      if ((grafo_forma[i][0] == x) && (grafo_forma[i][1] == y)) {
+      if ((grafo_forma[i][0] == x-1) && (grafo_forma[i][1] == y-1)) {
         return true;
       }
     }
@@ -128,11 +130,11 @@ std::vector<std::vector<int>> grafo::matriz_al_lista_de_adyacencias() {
   return lista;
 }
 void grafo::mostrar_grafo() {
-
+  
   for (int i = 0; i < (int)grafo_forma.size(); i++) {
     for (int j = 0; j < (int)grafo_forma[i].size(); j++) {
 
-      std::cout << grafo_forma[i][j] << " ";
+      std::cout << grafo_forma[i][j]+modo << " ";
     }
     std::cout << std::endl;
   }
@@ -140,11 +142,12 @@ void grafo::mostrar_grafo() {
 
 //=======================================================================================
 bool grafo::hay_camino(int x, int y) {
-
+  x=x-1;
+  y=y-1;
   std::vector<int> apariciones;
   std::vector<int> caminos;
   apariciones.push_back(x);
-  if (hay_arco(x, y)) {
+  if (hay_arco(x+1, y+1)) {
     return true;
   }
 
@@ -185,7 +188,7 @@ bool grafo::hay_camino(int x, int y) {
 bool grafo::hay_camino(int x, int y, std::vector<int> apariciones) {
   apariciones.push_back(x);
   std::vector<int> caminos;
-  if (hay_arco(x, y)) {
+  if (hay_arco(x+1, y+1)) {
     return true;
   }
 
